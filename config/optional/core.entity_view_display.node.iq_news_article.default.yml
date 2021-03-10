@@ -1,0 +1,51 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.iq_news_article.body
+    - field.field.node.iq_news_article.field_iq_date_publish
+    - field.field.node.iq_news_article.field_iq_image
+    - field.field.node.iq_news_article.field_iq_lead
+    - field.field.node.iq_news_article.field_iq_topics
+    - field.field.node.iq_news_article.field_meta_tags
+    - field.field.node.iq_news_article.field_pagedesigner_content
+    - field.field.node.iq_news_article.field_yoast_seo
+    - node.type.iq_news_article
+  module:
+    - datetime
+    - user
+id: node.iq_news_article.default
+targetEntityType: node
+bundle: iq_news_article
+mode: default
+content:
+  field_iq_date_publish:
+    weight: 4
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  flag_iq_dislike:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  flag_iq_like:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_iq_image: true
+  field_iq_lead: true
+  field_iq_topics: true
+  field_meta_tags: true
+  field_pagedesigner_content: true
+  field_yoast_seo: true
+  langcode: true
+  like_and_dislike: true
+  links: true

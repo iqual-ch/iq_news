@@ -1,0 +1,5 @@
+news-article:
+  css:
+    theme:
+      resources/css/news-article.css: {}
+
