@@ -84,7 +84,7 @@ display:
             nothing_2: 0
           separator: ''
           hide_empty: 0
-          pattern: iq-blog-teaser
+          pattern: iq-news-teaser
           pattern_mapping:
             'views_row:nothing':
               destination: pre_title
