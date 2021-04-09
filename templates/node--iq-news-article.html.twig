@@ -83,9 +83,9 @@
       <div class="row iq-row news-intro">
         <div class="col-xs-12 col-md-12 iq-column">
           <div class="iq-text">
-            {% if node.field_iq_date_publish.value %}
+            {% if node.published_at.value %}
             <p class="pre-title">
-              {{ node.field_iq_date_publish.value|date("d.m.Y") }}
+              {{ node.published_at.value|date("d.m.Y") }}
             </p>
             {% endif %}
             <h1>{{node.title.value}}</h1>

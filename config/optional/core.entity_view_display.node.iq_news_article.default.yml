@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - field.field.node.iq_news_article.body
-    - field.field.node.iq_news_article.field_iq_date_publish
     - field.field.node.iq_news_article.field_iq_image
     - field.field.node.iq_news_article.field_iq_lead
     - field.field.node.iq_news_article.field_iq_topics
@@ -18,26 +17,7 @@ id: node.iq_news_article.default
 targetEntityType: node
 bundle: iq_news_article
 mode: default
-content:
-  field_iq_date_publish:
-    weight: 4
-    label: above
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
-  flag_iq_dislike:
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  flag_iq_like:
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
+content: { }
 hidden:
   body: true
   field_iq_image: true

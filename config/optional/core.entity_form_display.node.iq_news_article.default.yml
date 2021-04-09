@@ -4,7 +4,6 @@ dependencies:
   config:
     - entity_browser.browser.iq_image_browser
     - field.field.node.iq_news_article.body
-    - field.field.node.iq_news_article.field_iq_date_publish
     - field.field.node.iq_news_article.field_iq_image
     - field.field.node.iq_news_article.field_iq_lead
     - field.field.node.iq_news_article.field_iq_topics
@@ -33,12 +32,6 @@ content:
       show_summary: false
     third_party_settings: {  }
     type: pagedesigner_yoast_seo_body_widget
-    region: content
-  field_iq_date_publish:
-    weight: 1
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
     region: content
   field_iq_image:
     weight: 3

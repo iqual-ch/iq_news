@@ -10,6 +10,8 @@
   ],
   "require": {
     "iqual/pagedesigner_block_adaptable": "*",
-    "drupal/iq_entity_browsers": "*"
+    "drupal/iq_entity_browsers": "*",
+    "drupal/publication_date": "*",
+    "drupal/scheduler": "*"
   }
 }

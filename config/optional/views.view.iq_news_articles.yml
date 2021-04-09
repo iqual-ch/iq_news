@@ -3,12 +3,10 @@ status: true
 dependencies:
   config:
     - field.storage.media.field_media_image
-    - field.storage.node.field_iq_date_publish
     - field.storage.node.field_iq_lead
     - field.storage.node.field_iq_topics
     - node.type.iq_news_article
   module:
-    - datetime
     - image
     - media
     - node
@@ -75,7 +73,6 @@ display:
             nothing: 0
             title: 0
             name: 0
-            field_iq_date_publish: 0
             field_iq_reading_duration: 0
             nothing_1: 0
             field_media_image: 0
@@ -297,14 +294,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_iq_date_publish:
-          id: field_iq_date_publish
-          table: node__field_iq_date_publish
-          field: field_iq_date_publish
+        published_at:
+          id: published_at
+          table: node_field_data
+          field: published_at
           relationship: none
           group_type: group
           admin_label: ''
-          label: Publikationsdatum
+          label: 'Veröffentlicht am'
           exclude: true
           alter:
             alter_text: false
@@ -346,10 +343,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: datetime_custom
+          type: timestamp
           settings:
-            timezone_override: ''
-            date_format: d.m.Y
+            date_format: custom
+            custom_date_format: d.m.Y
+            timezone: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -360,6 +358,8 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: node
+          entity_field: published_at
           plugin_id: field
         nothing_1:
           id: nothing_1
@@ -372,7 +372,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{% if  field_iq_date_publish %}{{ field_iq_date_publish }}{% endif %}'
+            text: '{% if  published_at %}{{ published_at }}{% endif %}'
             make_link: false
             path: ''
             absolute: false
@@ -639,18 +639,45 @@ display:
           plugin_id: custom
       filters:
         status:
-          value: '1'
+          id: status
           table: node_field_data
           field: status
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-          id: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
           expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-          group: 1
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
         type:
           id: type
           table: node_field_data
@@ -693,101 +720,11 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        field_iq_date_publish_value:
-          id: field_iq_date_publish_value
-          table: node__field_iq_date_publish
-          field: field_iq_date_publish_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: empty
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
-          group: 2
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: datetime
-        field_iq_date_publish_value_1:
-          id: field_iq_date_publish_value_1
-          table: node__field_iq_date_publish
-          field: field_iq_date_publish_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '<'
-          value:
-            min: ''
-            max: ''
-            value: '+0'
-            type: offset
-          group: 2
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: datetime
       sorts:
-        field_iq_date_publish_value:
-          id: field_iq_date_publish_value
-          table: node__field_iq_date_publish
-          field: field_iq_date_publish_value
+        published_at:
+          id: published_at
+          table: node_field_data
+          field: published_at
           relationship: none
           group_type: group
           admin_label: ''
@@ -796,7 +733,9 @@ display:
           expose:
             label: ''
           granularity: second
-          plugin_id: datetime
+          entity_type: node
+          entity_field: published_at
+          plugin_id: date
         created:
           id: created
           table: node_field_data
@@ -842,7 +781,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_media_image'
-        - 'config:field.storage.node.field_iq_date_publish'
         - 'config:field.storage.node.field_iq_lead'
         - 'config:field.storage.node.field_iq_topics'
   block_1:
@@ -862,7 +800,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_media_image'
-        - 'config:field.storage.node.field_iq_date_publish'
         - 'config:field.storage.node.field_iq_lead'
         - 'config:field.storage.node.field_iq_topics'
   block_2:
@@ -911,7 +848,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_media_image'
-        - 'config:field.storage.node.field_iq_date_publish'
         - 'config:field.storage.node.field_iq_lead'
         - 'config:field.storage.node.field_iq_topics'
   block_3:
@@ -932,7 +868,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_media_image'
-        - 'config:field.storage.node.field_iq_date_publish'
         - 'config:field.storage.node.field_iq_lead'
         - 'config:field.storage.node.field_iq_topics'
   block_4:
@@ -999,96 +934,6 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        field_iq_date_publish_value:
-          id: field_iq_date_publish_value
-          table: node__field_iq_date_publish
-          field: field_iq_date_publish_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: empty
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
-          group: 2
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: datetime
-        field_iq_date_publish_value_1:
-          id: field_iq_date_publish_value_1
-          table: node__field_iq_date_publish
-          field: field_iq_date_publish_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '<'
-          value:
-            min: ''
-            max: ''
-            value: '+0'
-            type: offset
-          group: 2
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: datetime
         nid:
           id: nid
           table: node
@@ -1154,6 +999,5 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.media.field_media_image'
-        - 'config:field.storage.node.field_iq_date_publish'
         - 'config:field.storage.node.field_iq_lead'
         - 'config:field.storage.node.field_iq_topics'

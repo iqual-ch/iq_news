@@ -8,5 +8,7 @@ dependencies:
   - pagedesigner_block_adaptable:pagedesigner_block_adaptable
   - iq_entity_browsers:iq_entity_browsers
   - ui_patterns:ui_patterns_views
+  - publication_date:publication_date
+  - scheduler:scheduler
 'interface translation project': iq_news
 'interface translation server pattern': modules/custom/iq_news/translations/iq_news-%language.po
