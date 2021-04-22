@@ -15,7 +15,6 @@ selection_criteria:
     negate: false
     context_mapping:
       node: node
-    uuid: 0ebe78f9-8e2f-4011-a581-0a0e4ce2dd49
 selection_logic: and
 weight: -5
 relationships: {  }
