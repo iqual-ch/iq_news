@@ -16,3 +16,6 @@ Install module as usual:
 
     composer require iqual/iq_news
     drush en iq_news
+
+If needed:
+- Add News as filterable content type in content view

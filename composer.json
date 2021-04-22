@@ -12,6 +12,7 @@
     "iqual/pagedesigner_block_adaptable": "*",
     "drupal/iq_entity_browsers": "*",
     "drupal/publication_date": "*",
-    "drupal/scheduler": "*"
+    "drupal/scheduler": "*",
+    "drupal/twig_tweak": "^2.0"
   }
 }
