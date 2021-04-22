@@ -17,5 +17,9 @@ Install module as usual:
     composer require iqual/iq_news
     drush en iq_news
 
+Follow installation instructions for entity browsers:
+https://github.com/iqual-ch/iq_entity_browsers/blob/8.x-1.x/README.md#iq_entity_browsers (skip step «Install the module using composer»)
+
+
 If needed:
 - Add News as filterable content type in content view
