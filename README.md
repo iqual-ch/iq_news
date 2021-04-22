@@ -17,6 +17,12 @@ Install module as usual:
     composer require iqual/iq_news
     drush en iq_news
 
+
+Rebuild CSS:
+
+    drush iq_barrio_helper:sass-compile
+
+
 Follow installation instructions for entity browsers:
 https://github.com/iqual-ch/iq_entity_browsers/blob/8.x-1.x/README.md#iq_entity_browsers (skip step «Install the module using composer»)
 
