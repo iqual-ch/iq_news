@@ -2,7 +2,7 @@ name: iqual News
 description: Base news system for iqual
 package: iqual News
 type: module
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^9.5 || ^10
 dependencies:
   - drupal:datetime
   - pagedesigner_block_adaptable:pagedesigner_block_adaptable
