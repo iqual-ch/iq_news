@@ -985,7 +985,7 @@ display:
           pagedesigner_multiselect: 1
           pagedesigner_required: true
           pagedesigner_bundles:
-            iq_faq: iq_faq
+            iq_news_article: iq_news_article
       defaults:
         filters: false
         filter_groups: false
