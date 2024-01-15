@@ -16,5 +16,12 @@
     "drupal/publication_date": "^2.0",
     "drupal/scheduler": "^2.0",
     "drupal/twig_tweak": "^3.2"
+  },
+  "extra": {
+    "patches": {
+      "drupal/publication_date": {
+        "[https://dgo.to/3210972]: Handle scheduler": "https://www.drupal.org/files/issues/2023-11-23/publication_date-scheduler_handler-3210972-9.patch"
+      }
+    }
   }
 }
